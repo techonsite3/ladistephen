@@ -1,0 +1,475 @@
+@import "tailwindcss";
+
+/* ======================================
+   LADISTEPHEN.COM — Design System
+   Executive Authority Platform
+   ====================================== */
+
+@theme inline {
+  --color-background: var(--background);
+  --color-foreground: var(--foreground);
+  --font-sans: var(--font-inter);
+  --font-serif: var(--font-libre);
+
+  /* Brand Colors */
+  --color-navy: #0F172A;
+  --color-navy-light: #1E293B;
+  --color-navy-800: #162033;
+  --color-charcoal: #1E293B;
+  --color-gold: #C8A96B;
+  --color-gold-light: #D4BA82;
+  --color-gold-dark: #B8954D;
+  --color-soft-white: #F8FAFC;
+  --color-teal: #0F766E;
+  --color-teal-light: #14B8A6;
+  --color-warm-gray: #94A3B8;
+  --color-border-subtle: rgba(200, 169, 107, 0.15);
+  --color-border-medium: rgba(200, 169, 107, 0.25);
+
+  /* Animations */
+  --animate-fade-up: fade-up 0.8s ease-out both;
+  --animate-fade-in: fade-in 0.6s ease-out both;
+  --animate-slide-right: slide-right 0.7s ease-out both;
+  --animate-scale-in: scale-in 0.5s ease-out both;
+  --animate-float: float 6s ease-in-out infinite;
+  --animate-shimmer: shimmer 3s ease-in-out infinite;
+  --animate-marquee: marquee 30s linear infinite;
+}
+
+:root {
+  --background: #F8FAFC;
+  --foreground: #0F172A;
+}
+
+@keyframes fade-up {
+  from {
+    opacity: 0;
+    transform: translateY(30px);
+  }
+
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes fade-in {
+  from {
+    opacity: 0;
+  }
+
+  to {
+    opacity: 1;
+  }
+}
+
+@keyframes slide-right {
+  from {
+    opacity: 0;
+    transform: translateX(-30px);
+  }
+
+  to {
+    opacity: 1;
+    transform: translateX(0);
+  }
+}
+
+@keyframes scale-in {
+  from {
+    opacity: 0;
+    transform: scale(0.95);
+  }
+
+  to {
+    opacity: 1;
+    transform: scale(1);
+  }
+}
+
+@keyframes float {
+
+  0%,
+  100% {
+    transform: translateY(0px);
+  }
+
+  50% {
+    transform: translateY(-10px);
+  }
+}
+
+@keyframes shimmer {
+
+  0%,
+  100% {
+    opacity: 0.5;
+  }
+
+  50% {
+    opacity: 1;
+  }
+}
+
+@keyframes marquee {
+  0% {
+    transform: translateX(0);
+  }
+
+  100% {
+    transform: translateX(-50%);
+  }
+}
+
+/* ======================================
+   Base Styles
+   ====================================== */
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  background: var(--background);
+  color: var(--foreground);
+  font-family: var(--font-sans), system-ui, sans-serif;
+  overflow-x: hidden;
+}
+
+::selection {
+  background-color: rgba(200, 169, 107, 0.25);
+  color: #0F172A;
+}
+
+/* ======================================
+   Typography
+   ====================================== */
+.heading-serif {
+  font-family: var(--font-serif), Georgia, serif;
+  font-weight: 700;
+  letter-spacing: -0.02em;
+  line-height: 1.15;
+}
+
+.text-balance {
+  text-wrap: balance;
+}
+
+/* ======================================
+   Premium Gold Divider
+   ====================================== */
+.gold-divider {
+  width: 60px;
+  height: 2px;
+  background: linear-gradient(90deg, #C8A96B, #D4BA82, #C8A96B);
+}
+
+.gold-divider-long {
+  width: 120px;
+  height: 1px;
+  background: linear-gradient(90deg, transparent, #C8A96B, transparent);
+}
+
+/* ======================================
+   Section Styles
+   ====================================== */
+.section-padding {
+  padding: 6rem 1.5rem;
+}
+
+@media (min-width: 768px) {
+  .section-padding {
+    padding: 8rem 2rem;
+  }
+}
+
+@media (min-width: 1024px) {
+  .section-padding {
+    padding: 10rem 2rem;
+  }
+}
+
+/* ======================================
+   Button Styles
+   ====================================== */
+.btn-primary {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+  padding: 0.875rem 2rem;
+  background: #C8A96B;
+  color: #0F172A;
+  font-weight: 600;
+  font-size: 0.875rem;
+  letter-spacing: 0.05em;
+  text-transform: uppercase;
+  border: none;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  position: relative;
+  overflow: hidden;
+}
+
+.btn-primary::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(135deg, rgba(255, 255, 255, 0.15), transparent);
+  opacity: 0;
+  transition: opacity 0.3s ease;
+}
+
+.btn-primary:hover {
+  background: #D4BA82;
+  transform: translateY(-1px);
+  box-shadow: 0 4px 20px rgba(200, 169, 107, 0.35);
+}
+
+.btn-primary:hover::before {
+  opacity: 1;
+}
+
+.btn-secondary {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+  padding: 0.875rem 2rem;
+  background: transparent;
+  color: #C8A96B;
+  font-weight: 600;
+  font-size: 0.875rem;
+  letter-spacing: 0.05em;
+  text-transform: uppercase;
+  border: 1.5px solid rgba(200, 169, 107, 0.5);
+  cursor: pointer;
+  transition: all 0.3s ease;
+}
+
+.btn-secondary:hover {
+  border-color: #C8A96B;
+  background: rgba(200, 169, 107, 0.08);
+  transform: translateY(-1px);
+}
+
+/* ======================================
+   Card Styles
+   ====================================== */
+.expertise-card {
+  background: white;
+  border: 1px solid rgba(15, 23, 42, 0.06);
+  padding: 2.5rem;
+  transition: all 0.4s ease;
+  position: relative;
+  overflow: hidden;
+}
+
+.expertise-card::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 3px;
+  background: linear-gradient(90deg, #C8A96B, #0F766E);
+  transform: scaleX(0);
+  transform-origin: left;
+  transition: transform 0.4s ease;
+}
+
+.expertise-card:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 20px 40px rgba(15, 23, 42, 0.08);
+  border-color: rgba(200, 169, 107, 0.2);
+}
+
+.expertise-card:hover::before {
+  transform: scaleX(1);
+}
+
+/* Dark background cards */
+.expertise-card-dark {
+  background: #162033;
+  border: 1px solid rgba(200, 169, 107, 0.1);
+  padding: 2.5rem;
+  transition: all 0.4s ease;
+  position: relative;
+  overflow: hidden;
+}
+
+.expertise-card-dark::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 3px;
+  background: linear-gradient(90deg, #C8A96B, #14B8A6);
+  transform: scaleX(0);
+  transform-origin: left;
+  transition: transform 0.4s ease;
+}
+
+.expertise-card-dark:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 20px 50px rgba(0, 0, 0, 0.3);
+  border-color: rgba(200, 169, 107, 0.25);
+}
+
+.expertise-card-dark:hover::before {
+  transform: scaleX(1);
+}
+
+/* Insight cards */
+.insight-card {
+  background: white;
+  border: 1px solid rgba(15, 23, 42, 0.06);
+  overflow: hidden;
+  transition: all 0.4s ease;
+}
+
+.insight-card:hover {
+  transform: translateY(-6px);
+  box-shadow: 0 25px 50px rgba(15, 23, 42, 0.1);
+}
+
+.insight-card:hover .insight-image {
+  transform: scale(1.05);
+}
+
+/* ======================================
+   Logo Trust Strip
+   ====================================== */
+.trust-logo {
+  opacity: 0.4;
+  transition: opacity 0.3s ease;
+  filter: grayscale(100%);
+}
+
+.trust-logo:hover {
+  opacity: 0.7;
+}
+
+/* ======================================
+   Navigation
+   ====================================== */
+.nav-link {
+  position: relative;
+  font-size: 0.8125rem;
+  font-weight: 500;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: rgba(248, 250, 252, 0.7);
+  transition: color 0.3s ease;
+  padding: 0.25rem 0;
+}
+
+.nav-link::after {
+  content: '';
+  position: absolute;
+  bottom: -2px;
+  left: 0;
+  width: 0;
+  height: 1px;
+  background: #C8A96B;
+  transition: width 0.3s ease;
+}
+
+.nav-link:hover {
+  color: #F8FAFC;
+}
+
+.nav-link:hover::after {
+  width: 100%;
+}
+
+/* ======================================
+   Form Styles
+   ====================================== */
+.form-input {
+  width: 100%;
+  padding: 1rem 1.25rem;
+  background: rgba(255, 255, 255, 0.03);
+  border: 1px solid rgba(200, 169, 107, 0.15);
+  color: #F8FAFC;
+  font-size: 0.9375rem;
+  transition: all 0.3s ease;
+  outline: none;
+}
+
+.form-input:focus {
+  border-color: #C8A96B;
+  box-shadow: 0 0 0 3px rgba(200, 169, 107, 0.1);
+}
+
+.form-input::placeholder {
+  color: rgba(148, 163, 184, 0.5);
+}
+
+/* ======================================
+   Decorative Elements
+   ====================================== */
+.glow-orb {
+  position: absolute;
+  border-radius: 50%;
+  filter: blur(100px);
+  opacity: 0.15;
+  pointer-events: none;
+}
+
+.pattern-dots {
+  background-image: radial-gradient(rgba(200, 169, 107, 0.12) 1px, transparent 1px);
+  background-size: 24px 24px;
+}
+
+/* ======================================
+   Scroll Animations
+   ====================================== */
+.reveal {
+  opacity: 0;
+  transform: translateY(30px);
+  transition: all 0.8s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.reveal.visible {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+.reveal-delay-1 {
+  transition-delay: 0.1s;
+}
+
+.reveal-delay-2 {
+  transition-delay: 0.2s;
+}
+
+.reveal-delay-3 {
+  transition-delay: 0.3s;
+}
+
+.reveal-delay-4 {
+  transition-delay: 0.4s;
+}
+
+.reveal-delay-5 {
+  transition-delay: 0.5s;
+}
+
+/* ======================================
+   Custom Scrollbar
+   ====================================== */
+::-webkit-scrollbar {
+  width: 6px;
+}
+
+::-webkit-scrollbar-track {
+  background: #0F172A;
+}
+
+::-webkit-scrollbar-thumb {
+  background: rgba(200, 169, 107, 0.3);
+  border-radius: 3px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: rgba(200, 169, 107, 0.5);
+}
