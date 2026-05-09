@@ -1,4 +1,5 @@
 import Link from "next/link";
+import Image from "next/image";
 
 export default function Footer() {
   const currentYear = new Date().getFullYear();
@@ -10,10 +11,14 @@ export default function Footer() {
         <div className="py-16 grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-12">
           {/* Brand */}
           <div className="lg:col-span-2">
-            <Link href="/" className="inline-block">
-              <h3 className="heading-serif text-xl text-soft-white">
-                Ladi Agbenu Stephen
-              </h3>
+            <Link href="/" className="inline-block mb-4">
+              <Image
+                src="/ladi-3-cropped.png"
+                alt="Ladi Agbenu Stephen — Global Health Executive"
+                width={300}
+                height={80}
+                className="h-12 w-auto object-contain"
+              />
             </Link>
             <p className="mt-6 text-warm-gray/70 text-sm leading-relaxed max-w-md">
               Global Health Executive and International Development Leader with
